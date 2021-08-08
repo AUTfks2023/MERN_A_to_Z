@@ -21,11 +21,11 @@ app.use(express.json({ extended: false }));
 
 const path = require("path");
 
-app.use(express.static(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build")));
+app.use(express.static(path.resolve(__dirname, "./mern_a_to_z_client/build")));
 
 
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build", "index.html"));
+  response.sendFile(path.resolve(__dirname, "./mern_a_to_z_client/build", "index.html"));
 });
 
 
