@@ -18,7 +18,16 @@ app.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('Hello world!'));
+
+const path = require("path");
+
+app.use(express.static(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build")));
+
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build", "index.html"));
+});
+
 
 // use Routes
 app.use('/api/books', books);
@@ -28,11 +37,3 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 // Accessing the path module
-const path = require("path");
-
-// Step 1:
-app.use(express.static(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build")));
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build", "index.html"));
-});
