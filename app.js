@@ -23,6 +23,16 @@ app.get('/', (req, res) => res.send('Hello world!'));
 // use Routes
 app.use('/api/books', books);
 
-const port = process.env.PORT || 8082;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
+// Accessing the path module
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./ReactApp Directory/mern_a_to_z_client/build", "index.html"));
+});

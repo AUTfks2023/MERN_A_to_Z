@@ -1,4 +1,4 @@
 {
   "mongoURI":
-    "mongodb+srv://fks2023:Creature01@mernatoz.0lyo8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongodb+srv://fks2023:Creature01@mernatoz.0lyo8.mongodb.net/MernAtoZ?retryWrites=true&w=majority"
 }
